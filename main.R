@@ -33,6 +33,8 @@ return2 <- simulationOfCardsIncrement(100,1,30)
 # abline(h=c(40,50,60), col=c("cadetblue2","blue","cadetblue2"), lwd=c(1,1.2,1))
 # plot(return2$diffs, type="o",xlim=c(1,100),ylim=c(0,5), col="red", lwd=1.2, xlab="Pocet kariet", ylab=c('vypocet diff'))
 # abline(h=c(.4,0.5,.6), col=c("cadetblue2","blue","cadetblue2"), lwd=c(1,1.2,1))
+# plot(return2$fairDiffs, type="o",xlim=c(1,100),ylim=c(0,10), col="red", lwd=1.2, xlab="Pocet kariet", ylab=c('vypocet diff'))
+# abline(h=c(0), col=c("blue"), lwd=c(1.2))
 #_________________________________________________________________________________________________________________________________________
 #Teraz budeme porovnavat nas rychly a vsak nie 100% uspesny algoritmus ondruskovec3000 s algoritmom dynamickeho programovania a spravime z 
 # toho nejaky zaver
@@ -62,9 +64,15 @@ return4 <- extremCardQuantitySimulation()
 #_________________________________________________________________________________________________________________________________________
 # Teraz skusime pre dap algoritmus generovat karty z velkeho rozsahu 1-500, ocakavame, ze spravodlive delenie zacne byt od vacsieho poctu kariet ako v simulaciach, kde sa generovali hodnoty od 1 po 30, kvoli tomu nebudeme, pre kazdy pocet robit 100 simulacii ale len 3
 return5 <- simulationOfCardsIncrement(30,1,500,3)
-#
-#
-#
+# par(mfrow=c(1,1))
+# plot(return5$timeRecords,type="l", col="blue", lwd=2, xlab="Pocet kariet", ylab=c('mean(dlzka algoritmu v sec)')")
+# par(mfrow=c(2,2))
+# plot(return5$diffs, type="o",xlim=c(1,40),ylim=c(0,220), col="red", lwd=1.2, xlab="Pocet kariet", ylab=c('vypocet diff'),main="Vypocet diff")
+# plot(return5$diffs, type="o",xlim=c(6,40),ylim=c(0,2), col="red", lwd=1.2, xlab="Pocet kariet", ylab=c('vypocet diff'),main="Vypocet diff")
+# abline(h=c(0), col=c("blue"), lwd=c(1.2))
+# plot(return5$fairDiffs, type="o",xlim=c(1,40),ylim=c(0,250), col="red", lwd=1.2, xlab="Pocet kariet", ylab=c('vypocet diff'),main="Vypocet diff, ked sum(cards) je delitelne 2")
+# plot(return5$fairDiffs, type="o",xlim=c(6,40),ylim=c(0,2), col="red", lwd=1.2, xlab="Pocet kariet", ylab=c('vypocet diff'),main="Vypocet diff, ked sum(cards) je delitelne 2")
+# abline(h=c(0), col=c("blue"), lwd=c(1.2))
 #_________________________________________________________________________________________________________________________________________
 # Este urobime jednu nadstavbu a to taku, ze modifikujeme povodny dap algoritmus tak aby sme neoptimalizovali len hodnoty karticiek ale aj pocet. Teda chceme aby hodnoty a aj pocet bol co najspravodlivejsi. Je zrejme ze v payoff funkcii
 # budu hodnoty (x - sum(cards))^2 >= (z - length(cards))^2 a hodnoty budu prebijat istym sposobom pocet, preto sme im pridelili aj vahy
