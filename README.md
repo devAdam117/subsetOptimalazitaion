@@ -1,0 +1,2 @@
+# subsetOptimalazitaion
+Dynamic programming
