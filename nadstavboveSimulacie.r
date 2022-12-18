@@ -10,11 +10,13 @@ simulationOfCardsIncrement <- function(n,min,max,simNum=NULL){
     ret$equalSubsets <- c()
     ret$timeRecords <- c()
     ret$diffs <- c()
+    ret$fairDiffs <-c()
   # pre kazdy rozny pocet karticiek
   for(i in 2:n){
     equalSubsets <- 0
     timesRecords <- c()
     diffs <- c()
+    fairDiffs <-c()
     #sa 100krat sa vykona dana simulacia a zaznamenaju vysledky
     for(j in 1:simNum){
       equalSubset <- FALSE
@@ -25,12 +27,16 @@ simulationOfCardsIncrement <- function(n,min,max,simNum=NULL){
       if(xOpt==sum(cards)/2){
         equalSubsets <- equalSubsets+1
       }
+      if(!is.null(timeReturn$output$fairDiff)){
+        fairDiffs<- append(fairDiffs,timeReturn$output$fairDiff)
+      }
       timesRecords <- append(timesRecords,timeReturn$totalTime)
       diffs <- append(diffs,diff)
     }
     ret$equalSubsets <- append(ret$equalSubsets,equalSubsets)
     ret$timeRecords <- append(ret$timeRecords,mean(timesRecords))
     ret$diffs <- append(ret$diffs,mean(diffs))
+    ret$fairDiffs <- append(ret$fairDiffs,mean(fairDiffs))
     print(i)
   }
     return(ret)

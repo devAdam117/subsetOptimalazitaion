@@ -85,9 +85,12 @@ solveCardsSeparation <- function (cards,showMatrices=FALSE){
   }
   # vypocet finalnych rozdielov v abs hodnote pre ucely porovnavanie s inym algoritmom
   diff=abs(sum(cards[uOpt==1])-sum(cards[uOpt==0]))
-  ret <- list(v=v,V=V,xOpt=xOpt,uOpt=uOpt,diff=diff)
+  ret <- list(v=v,V=V,xOpt=xOpt,uOpt=uOpt,diff=diff,fairDiffs=NULL)
   if(!showMatrices){
-    ret <- list(xOpt=xOpt,uOpt=uOpt,diff=diff)
+    ret <- list(xOpt=xOpt,uOpt=uOpt,diff=diff,fairDiffs=NULL)
+  }
+  if(sum(cards) %% 2 ==0){
+    ret <- list(v=v,V=V,xOpt=xOpt,uOpt=uOpt,diff=diff,fairDiffs=diff)
   }
   return(ret)
 }

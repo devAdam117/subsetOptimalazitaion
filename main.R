@@ -60,8 +60,8 @@ return4 <- extremCardQuantitySimulation()
 # plot(return4$ondruskovedTimeRecords, ylim=c(0,150),type="l", col="blue", lwd=2, xlab="(Pocet kariet)*100", ylab=c('mean(dlzka algoritmu v sec)'),main="Rychlost ondruskovca3000 vs dap algoritmu")
 # lines(return4$dapTimeRecords, type="l", col="red", lwd=2)
 #_________________________________________________________________________________________________________________________________________
-# Teraz skusime pre dap algoritmus generovat karty z velkeho rozsahu 1-500, ocakavame, ze spravodlive delenie zacne byt od vacsieho poctu kariet ako v simulaciach, kde sa generovali hodnoty od 1 po 30, kvoli tomu nebudeme, pre kazdy pocet robit 100 simulacii ale len 10
-return5 <- simulationOfCardsIncrement(30,1,500,10)
+# Teraz skusime pre dap algoritmus generovat karty z velkeho rozsahu 1-500, ocakavame, ze spravodlive delenie zacne byt od vacsieho poctu kariet ako v simulaciach, kde sa generovali hodnoty od 1 po 30, kvoli tomu nebudeme, pre kazdy pocet robit 100 simulacii ale len 3
+return5 <- simulationOfCardsIncrement(30,1,500,3)
 #
 #
 #
