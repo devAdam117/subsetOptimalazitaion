@@ -4,6 +4,7 @@ source('nadstavboveSimulacie.r')
 source('algoritmusOndruskovec3000.r')
 source('nadstavbaOptimalizaciaPoctuKarticiek.r')
 # Ak chceme vidiet definiciu nejakej funkcie vyuzivanu v tomto file -> CTRL + klik na nu 
+# pre importnutie sourcov, je potrebne v rstudiu nastavit session -> set working directory -> to source file location
 
 # prevolanim funkcie solveCardsSeparation(cards,showMatrices),  nachadzajuci sa v subore hlavneZadanie.r dostavame riesenie poovodne zadanej ulohy 
 # kde mame rozdelit karticky podla ich hodnot na dve kopy tak aby ich rozdiel na konci rozdelenia bol co najmensi. Dodatocny popis postupu algoritmu je v danom subore
@@ -13,6 +14,7 @@ source('nadstavbaOptimalizaciaPoctuKarticiek.r')
 # funkcia vzdy returnuje: xopt,uOpt  pripadne v,V ak je showMatrices==TRUE
 cards <- c(10, 1, 30, 8, 5, 7, 3, 4, 2, 3, 1, 5)
 return <- solveCardsSeparation(cards)
+
 #_________________________________________________________________________________________________________________________________________
 # Teraz budeme spustat rozne simulacie, v ktorych bude pocet karticiek inkrementovat a ich hodnoty
 # budu nahodne generovane z rovnomerneho rozdelenia (pre nejaky fixny interval) a nasledne zaokruhlene nadol.
@@ -62,8 +64,8 @@ return4 <- extremCardQuantitySimulation()
 # plot(return4$ondruskovedTimeRecords, ylim=c(0,150),type="l", col="blue", lwd=2, xlab="(Pocet kariet)*100", ylab=c('mean(dlzka algoritmu v sec)'),main="Rychlost ondruskovca3000 vs dap algoritmu")
 # lines(return4$dapTimeRecords, type="l", col="red", lwd=2)
 #_________________________________________________________________________________________________________________________________________
-# Teraz skusime pre dap algoritmus generovat karty z velkeho rozsahu 1-500, ocakavame, ze spravodlive delenie zacne byt od vacsieho poctu kariet ako v simulaciach, kde sa generovali hodnoty od 1 po 30, kvoli tomu nebudeme, pre kazdy pocet robit 100 simulacii ale len 3
-return5 <- simulationOfCardsIncrement(30,1,500,3)
+# Teraz skusime pre dap algoritmus generovat karty z velkeho rozsahu 1-500, ocakavame, ze spravodlive delenie zacne byt od vacsieho poctu kariet ako v simulaciach, kde sa generovali hodnoty od 1 po 30, kvoli tomu nebudeme, pre kazdy pocet robit 100 simulacii ale len 10
+return5 <- simulationOfCardsIncrement(40,1,500,10)
 # par(mfrow=c(1,1))
 # plot(return5$timeRecords,type="l", col="blue", lwd=2, xlab="Pocet kariet", ylab=c('mean(dlzka algoritmu v sec)')")
 # par(mfrow=c(2,2))
