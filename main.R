@@ -3,7 +3,7 @@ source('calcTime.r')
 source('nadstavboveSimulacie.r')
 source('algoritmusOndruskovec3000.r')
 source('nadstavbaOptimalizaciaPoctuKarticiek.r')
-# Ak chceme vidiet definiciu nejakej funkcie vyuzivanu v tomto file -> CTRL + klik na nu 
+# Ak chceme vidiet definiciu nejakej funkcie vyuzivanu v tomto file -> CTRL + klik na nu , zobrazi sa jej implement + comment k nej  spolu s vystupmi ake dostavame
 # pre importnutie sourcov, je potrebne v rstudiu nastavit session -> set working directory -> to source file location
 
 # prevolanim funkcie solveCardsSeparation(cards,showMatrices),  nachadzajuci sa v subore hlavneZadanie.r dostavame riesenie poovodne zadanej ulohy 
@@ -24,11 +24,9 @@ return <- solveCardsSeparation(cards)
 # Na konci sformujeme vysledky typu : kolko trva hra pre nejaky pocet karticiek.
 # Nastavime aby sa karticky generovali len z inetrvalu (1:30), tento interval je volitelny a vsak jeho nafuknutie
 # zapricini dlhsie posobenie algoritmu + ine vysledky simulacie 
-# pre n=100, to trva cca 3898.784 sec
+# simulationOfCardsIncrement(100,1,30) -> pre n=100, to trva cca 3898.784 sec
+# ak by sme chceli mat vysledok hned po ruke bez cakania, tak staci prevolat:  return2 <??? readRDS("return2.rds" ) (fixne data, ktore sme ziskali, ked sme my nechali zbehnut simulaciu)
 return2 <- simulationOfCardsIncrement(100,1,30)
-# Vysledky simulacie
-#return2$equalSubsets <- c(2,6,7,16,20,43,45,49,54,51,45,56,51,48,50,56,42,52,43,50,49,52,52,44,56,50,57,45,50,44,44,45,43,47,50,48,48,37,48,50,54,45,50,54,50,54,48,53,51,50,55,50,54,48,53,59,41,40,48,45,58,54,51,66,50,49,46,47,46,52,53,54,57,53,51,51,47,46,50,52,57,49,51,46,54,53,52,49,47,50,48,46,53,39,53,59,60,49,56)
-#return2$timeRecords: <- c(0.0009875011,0.0011968756,0.0020156932,0.0029627895,0.0044748306,0.0057054114,0.0077383304,0.0094458389,0.0114806151,0.0143635845,0.0164774942,0.0196306729,0.0232179570,0.0262819386,0.0297953081,0.0323790932,0.0359996939,0.0413864946,0.0466714191,0.0496034098,0.0554474545,0.0602769685,0.0667600536,0.0699811625,0.0761745906,0.0829411340,0.0894022107,0.0945483518,0.1024374413,0.1091204262,0.1150263214,0.1223362684,0.1323213243,0.1386750174,0.1443929386,0.1618116212,0.1602506709,0.1701735234,0.1775653195,0.1929961252,0.1981862617,0.2097892952,0.2188009810,0.2290839481,0.2364946127,0.2714862990,0.2772607660,0.2817893934,0.2916381764,0.2979484534,0.3131509042,0.3178090549,0.3268839407,0.3460949731,0.3610127592,0.3747623324,0.4218893576,0.4006289673,0.4054148865,0.4430832648,0.4620868754,0.4673195577,0.4779331255,0.5137790203,0.4944499612,0.5097688985,0.5255872631,0.5583546495,0.5674001455,0.5785809207,0.5833282137,0.6259813166,0.6378407001,0.6726203537,0.6795112896,0.6981220102,0.7248235178,0.7201261997,0.7156209445,0.7427794480,0.7484947586,0.7833221221,0.7922729492,0.8094278789,0.8373285532,0.8841257405,0.8828628731,0.8904146457,0.9259297180,0.9970118713,0.9787363195,0.9914941883,1.0033658981,1.0197561979,1.0583628106,1.0742751861,1.1319405484,1.1387415910,1.1563011384)
 # Graficke zobrazenie simulacie
 #plot(return2$timeRecords, type="o", col="red", lwd=1.2, xlab="Pocet kariet", ylab=c('mean(dlzka algoritmu v sec)'))
 # plot(return2$equalSubsets, type="o",xlim=c(1,100), col="red", lwd=1.2, xlab="Pocet kariet", ylab=c('pocet spravodlivyh rozdeleni'))
@@ -40,6 +38,7 @@ return2 <- simulationOfCardsIncrement(100,1,30)
 #_________________________________________________________________________________________________________________________________________
 #Teraz budeme porovnavat nas rychly a vsak nie 100% uspesny algoritmus ondruskovec3000 s algoritmom dynamickeho programovania a spravime z 
 # toho nejaky zaver
+# ak by sme chceli mat vysledok hned po ruke bez cakania, tak staci prevolat:  return3 <??? readRDS("return3.rds" ) (fixne data, ktore sme ziskali, ked sme my nechali zbehnut simulaciu)
 return3 <- simulationOfAlgorithmComparision(100,1,30)
 # Pocet nespravnych vysledkov a kolko z nich bolo pre aky pocet kariet
 # numOfWorseResults <- return3$ondruskovec3000$wrongResults$count -> 1774

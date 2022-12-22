@@ -2,6 +2,12 @@ source('hlavneZadanie.r')
 source('calcTime.r')
 source('algoritmusOndruskovec3000.r')
 # simulacie, ktora sluzi na zaznam statistik pri inkremente poctu kariet pre povodny algoritmus dynamickeho programovania
+# returnu type
+#  equalSubsets - kolkokrat pre pocet karticiek od 2:100 sa zo 100 simulacii podarilo rozdelit karticky na dve identicky hodnotne kopky
+#  timeRecords  - priemerna dlzka casu  pre pocet karticiek od 2:100 zo 100 simulacii
+#  diffs -  pre kazdy pocet kariet od 2:100 zaznamy priemernych absolutnych rozdielov medzi dvoma kopkami zo 100 simulacii
+#  fairDiffs -  pre kazdy pocet kariet od 2:100 zaznamy priemernych absolutnych rozdielov medzi dvoma kopkami zo 100 simulacii iba v pripade ak je sucet kariet delitelny dvojkou
+#    
 simulationOfCardsIncrement <- function(n,min,max,simNum=NULL){
     if(is.null(simNum)){
       simNum <- 100
@@ -43,6 +49,14 @@ simulationOfCardsIncrement <- function(n,min,max,simNum=NULL){
 }
 
 # simulacia, ktora sluzi na vzajomne porovnanie algoritmu dynamickeho programovania a algoritmu odnruskovca3000
+# returnu type
+#  ondruskovec3000$wrongResults$count - v kolkych simulaciach mal ondruskovec3000 rozny vysledok ako dap algoritmus (z celkovych 100*99)
+#  ondruskovec3000$wrongResults$cardNum - v pripade rozdielneho vysledku ondruskovca3000 a dap sa v simulaciach ukladali zaznamy pri akom pocte kariet nastal rozlisny vysledok
+#  ondruskovec3000$wrongResults$actualDiffs - v pripade rozdielneho vysledku ondruskovca3000 a dap sa ukladaly pre vysledky rozdelenia ondruskovca3000 absolutne rozdiely dvoch kopok
+#  ondruskovec3000$wrongResults$dapDiffs - v pripade rozdielneho vysledku ondruskovca3000 a dap sa ukladaly pre vysledky rozdelenia dap absolutne rozdiely dvoch kopok
+#  ondruskovec3000$timeRecords  - priemerna dlzka casu ondruskovca3000 pre pocet karticiek od 2:100 zo 100 simulacii
+#  dap$timeRecords - priemerna dlzka casu dap pre pocet karticiek od 2:100 zo 100 simulacii
+
 simulationOfAlgorithmComparision <- function(n,min,max){
   ret <- NULL
   ret$dap$timeRecords <- c()
