@@ -108,6 +108,9 @@ simulationOfAlgorithmComparision <- function(n,min,max){
   
 }
 # simulacie pre vypocet extremnych hodnot kariet
+# return type
+#  ondruskovedTimeRecords - kolko trvali vypocty ondruskovci3000
+#  dapTimeRecords - kolko trvali vypocty dap
 extremCardQuantitySimulation <- function(){
   ret <- NULL
   ret$ondruskovedTimeRecords <- c()

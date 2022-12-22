@@ -3,6 +3,12 @@
 # Efektivita tohto algoritmu by mala presvitat hlavne pri velkom pocte kariet (kludne s velkymi hodnotami), kde sa ocakava ze rozdelenie na 
 # dve particie moze nastat s viacerymi moznostami.
 # vysvetleniee funkcie nizsie v komentoch
+
+# return type
+#  cards1$cardsValues - hodnoty karticiek na prvej kopke
+#  cards1$cardsSum - sucet hodnot karticiek na prvej kope
+#  cards2$cardsValues - hodnoty karticiek na druhej kopke
+#  cards2$cardsSum - sucet hodnot karticiek na druhej kope
 ondruskovec3000 <- function(cards) {
   # dlzka kariet
   n<- length(cards)

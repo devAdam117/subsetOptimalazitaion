@@ -1,4 +1,4 @@
-# Pokus o vytvorenie kode, ktory dokaze vytvorit algoritmus dynamickeho programovanie pre k sestier
+# Pokus o vytvorenie kodu, ktory dokaze vytvorit algoritmus dynamickeho programovanie pre vseobecny pocet sestier = k 
 # islo tu o to aby sa vytvorilo dynamicky tolko cyklov aky je pocet sestier a vsak z casoveho hladiska, sme sa radsej presunuli na nadstavby ineho charakteru
 
 # POMOCNE FUNKCIE STARTS

@@ -3,7 +3,7 @@
 # x - stav teraz (uz ma vsebe nascitane predch stavy)
 # cards - vektor kariet s hodnotami
 payoffAdv <- function(x,cards,z,valueWeight=1,quantityWeight=1){
-  return((valueWeight*(2*x - sum(cards)))^2+((quantityWeight*(2*z-length(cards))))^2)
+  return(valueWeight*((2*x - sum(cards)))^2+quantityWeight*(((2*z-length(cards))))^2)
 }
 
 # buduci stav
@@ -36,17 +36,18 @@ isInInterval <- function(minBoundry,maxBoundry,value,includeBoundries = TRUE){
   return(TRUE)
 }
 #POMOCNE FUNKCIE ENDS
-
+# return type
+# xOpt - tak ako v povodnom algoritme
+# uOpt - tak ako v povodnom algoritme
+# zOpt - aky je pocet karticiek na prvej kopke pred vykonanim uopt[i] riadenia 
+# sumDiff - rozdiel hodnot dvoch kopok po vykonani algoritmu
+# countDiff - rozdiel pocetnosti dvoch kopok po vykonani algoritmu
 solveCardsSeparationByValueAndQuantity <- function(cards,valueWeight=1,quantityWeight=1,showMatrices=FALSE){
-  
-
-
-  # V komentoch oznacenie PZD: podla zadanie
   #funkcia ktora prijima ako argument karty, ktore pouzije do algoritmu
     # pocet rozhodnuti/kariet
-    k <- length(cards) #PZD 12
-    #ohranicenia pre stavovu a riadiaciu
-    xMax <- sum(cards) # PZD 79
+    k <- length(cards) 
+    #ohranicenia pre stavove a riadiaciu
+    xMax <- sum(cards) 
     xMin <- 0
     uMax <- 1
     uMin <- 0
@@ -61,6 +62,7 @@ solveCardsSeparationByValueAndQuantity <- function(cards,valueWeight=1,quantityW
     for(cardIdx in k:1){
       #pre kazdu hodnotu x od 1 po xMax+1 lebo v r sa indexuje od 1
       for(xIdx in 1:(xMax+1)){
+        #pre kazdu hodnotu z od 1 po zMax+1 lebo v r sa indexuje od 1
         for(zIdx in 1:(zMax+1)){
           # pre kazdu volbu ucka
           for(uIdx in 1:(uMax+1)){
