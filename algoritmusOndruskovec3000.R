@@ -1,5 +1,5 @@
 #algoritmus bol inspirovany petrom ondruskom. Rychly pretestovany na vela hodnotach a vsak nema 100 % uspesnot tj.
-# ked uloha dynamickeho programovania najde najoptimalnejsie riesenie nemusi nutne uspiet aj ondruskovec3000 priklad takeho vstupu -> c(8,1,2,9)
+# ked uloha dynamickeho programovania najde najoptimalnejsie riesenie nemusi nutne uspiet aj ondruskovec3000 priklad takeho vstupu -> c(1,2,3,4,6) kde optimalne rozdelenie je na (1,3,4) a (2,6) ale ondrusmovec ho tak nedokaze rozdelit kvoli svojim "retazovym" obmedzeniam
 # Efektivita tohto algoritmu by mala presvitat hlavne pri velkom pocte kariet (kludne s velkymi hodnotami), kde sa ocakava ze rozdelenie na 
 # dve particie moze nastat s viacerymi moznostami.
 # vysvetleniee funkcie nizsie v komentoch
